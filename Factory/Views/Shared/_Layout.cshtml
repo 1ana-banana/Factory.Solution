@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Dr. Sillystringz's Factory</title>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css'>
+    <link rel='stylesheet' href="~/css/styles.css" type="text/css">
+  </head>
+  <body>
+    <nav class="navbar navbar-light bg-light">
+
+      <h2 class="navbar-brand">Dr. Sillystringz's Factory </h2> 
+
+        <ul class="nav nav-pills">
+          <li class="nav-item">           
+            <a class="nav-link text-light" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link  text-light" href="/engineers">Engineer List</a>
+          <li class="nav-item">
+            <a class="nav-link text-light" href="/engineers/create">Add a new Engineer</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-light" href="/machines">Machine List</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-light" href="/machines/create">Add a new Machine</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div class="container">
+      @RenderBody()
+    </div>
+  </body>
+</html>
