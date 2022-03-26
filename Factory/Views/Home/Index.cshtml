@@ -1,0 +1,51 @@
+@{
+  Layout = "_Layout";
+}
+
+@using Factory.Models;
+<br>
+<div class = "jumbotron">
+  <h1>Dr. Sillystringz's Factory Database</h1>
+</div>
+<div class = "row">
+  <div class = "col-md-4">
+    <div class = "card">
+      <h3 class = "card-header">Engineers List: </h3>
+      @{
+        List<Engineer>engineersList = ViewBag.Engineers;
+          @if (engineersList.Count() ==0)
+          {
+            <h4>There is nothing to see here!</h4>
+          }
+          @foreach (Engineer engineer in ViewBag.Engineers)
+          {
+            <ul class = "list-group list-group-flush">
+              <li class = "list-group-item">@Html.ActionLink($"{engineer.FullName}", "Details", "Engineers", new {id = engineer.EngineerId})</li>
+            </ul>
+          }
+      }
+    </div>
+    <br>
+    <h4>@Html.ActionLink("View All Engineers", "Index", "Engineers", null, new {@class = "btn btn-dark"})</h4>
+  </div>
+  <div class ="col-md-4">
+    <div class = "card">
+      <h3 class = "card-header">Machines List:</h3>
+      @{
+        List<Machine> machineList = ViewBag.Machines;
+        @if (machineList.Count() == 0)
+        {
+          <h4>There is nothing to see here!</h4>
+        }
+        @foreach (Machine machine in ViewBag.Machines)
+        {
+          <ul class = "list-group list-group-flush">
+            <li class = "list-group-item">@Html.ActionLink($"{machine.MachineName}", "Details", "Machines", new {id = machine.MachineId})</li>
+          </ul>
+        }
+      }
+    </div>
+    <br>
+    <h4>@Html.ActionLink("View Machines", "Index", "Machines", null, new { @class="btn btn-dark"})</h4>
+  </div>
+</div>
