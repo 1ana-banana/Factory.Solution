@@ -1,0 +1,19 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Factory.Models.Machine
+
+<h4>Confirm Delete?</h4>
+
+<br>
+<h4>Machine Name: @Html.DisplayFor(model => model.MachineType)</h4>
+
+@using (Html.BeginForm())
+{
+  <br>
+  <input type="submit" value="Delete" class="btn btn-dark text"/>
+}
+
+<br>
+<p class="btn btn-dark">@Html.ActionLink("Back to Machines", "Index", null, null, new { @class = "text" })</p>

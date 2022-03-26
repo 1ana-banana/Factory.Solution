@@ -3,19 +3,25 @@
 }
 
 @using Factory.Models;
-@model List<Factory.Models.Machine>;
 
-<h1>Machines</h1>
-<hr />
+<h3>Machines</h3>
+<hr>
 
 @if (@Model.Count == 0)
 {
-  <h3>There are no Machines Added.</h3>
+  <h4>There are no machines added.</h4>
 }
-
 @foreach (Machine machine in Model)
 {
-  <li>@Html.ActionLink($"{machine.MachineName}", "Details", new { id = machine.MachineId })</li>
+  <div class="card-deck">
+    <div class="card text-center mb-3" style="width: 22rem;">
+      <div class="card-body">
+        <h5 class="card-title">@Html.ActionLink($"{machine.MachineType}", "Details", new { id = machine.MachineId }, new { @class = "text" })</h5>
+          <p class="card-text">@machine.MachineStatus</p>
+      </div>
+    </div>
+  </div>
 }
 <br>
-<p>@Html.ActionLink("Add a Machine", "Create", "Machines", null, new { @class="btn btn-dark"})</p>
+<p class="btn btn-dark">@Html.ActionLink("Add New Machine", "Create", null, null, new { @class = "text" })</p>
+<p class="btn btn-dark">@Html.ActionLink("Return Home", "Index", "Home", null, new { @class = "text" })<p>

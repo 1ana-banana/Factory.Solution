@@ -1,0 +1,32 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Factory.Models.Engineer
+
+<h3>Add Engineer/Machine Group</h3>
+<hr>
+
+@using (Html.BeginForm())
+{
+  <div class="form-group">
+    <h5>Engineer Name</h5>
+    @Html.TextBoxFor(model => model.EngineerName, new { @class = "form-control", @required = "required"})
+    <br>
+    <h5>Engineer @Html.LabelFor(model => model.EngineerStatus)</h5>
+    @Html.ListBox("EngineerStatus", new List<SelectListItem> { 
+      new SelectListItem { Text = "On Duty", Value = "On Duty"},
+      new SelectListItem { Text = "Ready", Value = "Ready"},
+      new SelectListItem { Text = "Break", Value = "Break"}
+      }, new { @class = "form-control"})
+      <br>
+        <h5>Machine Type:</h5>
+        @Html.DropDownList("MachineId", null, new { @class = "form-control" })
+      <br>
+    <input type="submit" value="Add New Engineer" class="btn btn-dark text"/>
+  </div>
+}
+
+<br>
+<p class="btn btn-dark">@Html.ActionLink("Show All Engineers", "Index", null, null, new { @class = "text" })</p>
+<p class="btn btn-dark">@Html.ActionLink("See All Machines", "Index", "Machines", null, new { @class = "text" })</p>

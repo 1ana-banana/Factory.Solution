@@ -1,0 +1,30 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Factory.Models.Machine
+
+<h3>Add Machine</h3>
+<hr>
+
+@using (Html.BeginForm())
+{
+  <div class="form-group">
+    <h5>Machine Type:</h5>
+    @Html.TextBoxFor(model => model.MachineType, new { @class = "form-control", @required = "required" })
+    <br>
+    
+    <h5>Machine Status</h5>
+    @Html.ListBox("MachineStatus", new List<SelectListItem> { 
+      new SelectListItem { Text = "Working", Value = "Working"},
+      new SelectListItem { Text = "Out of Order", Value = "Out of Order"},
+      new SelectListItem { Text = "Repair", Value = "Repair"}
+      }, new { @class = "form-control"})
+      <br>
+
+    <input type="submit" value="Add New Machine" class="btn btn-dark text"/>
+  </div>
+}
+
+<br>
+<p class="btn btn-dark">@Html.ActionLink("See All Machines", "Index", null, null, new { @class = "text" })</p>

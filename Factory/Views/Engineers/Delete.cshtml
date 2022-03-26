@@ -1,0 +1,19 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Factory.Models.Engineer
+
+<h4>Confirm Delete?</h4>
+<br>
+
+<h4>Engineer Name: @Html.DisplayFor(model => model.EngineerName)</h4>
+
+@using (Html.BeginForm())
+{
+  <br> 
+  <input type="submit" value="Delete" class="btn btn-dark text"/>
+}
+
+<br>
+<p class="btn btn-dark">@Html.ActionLink("Back to List", "Index", null, null, new { @class = "text" })</p>

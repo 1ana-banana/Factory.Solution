@@ -1,0 +1,45 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Factory.Models.Engineer
+
+<h3>Engineer Details: @Html.DisplayFor(model => model.EngineerName)</h3>
+<hr>
+
+<h5>Engineer Status: @Html.DisplayFor(model => model.EngineerStatus)</h5>
+
+<br>
+@if (@Model.JoinEntities.Count == 0)
+{
+  <p>This engineer does not have any machines.</p>
+}
+else 
+{
+  <h4>Machines this Engineer is working on:</h4>
+  <br>
+
+  @foreach(var join in @Model.JoinEntities)
+  {
+  <div class="card-deck">
+    <div class="card text-center border-light mb-3" style="width: 22rem;">
+      <div class="card-body">
+        <h4 class="card-title">@join.Machine.MachineType</h4>
+            @using (Html.BeginForm("DeleteMachine", "Engineers"))
+            {
+              @Html.Hidden("joinId", @join.MachineEngineerId)
+              <input type="submit" value="Delete" class = "btn btn-dark text"/>
+            }
+          <div class="card-footer text-muted">
+            <p>Machine Status: @join.Machine.MachineStatus</p>
+          </div>
+      </div>
+    </div>
+  </div>
+  }
+}
+
+<p class="btn btn-dark">@Html.ActionLink("Add a Machine", "AddMachine", new { id = Model.EngineerId }, new { @class = "text" })</p>
+<p class="btn btn-dark">@Html.ActionLink("Back to List", "Index", null, null, new { @class = "text" })</p>
+<p class="btn btn-dark">@Html.ActionLink("Edit Engineer", "Edit", new { id = Model.EngineerId }, new { @class = "text" })</p>
+<p class="btn btn-dark">@Html.ActionLink("Delete Engineer", "Delete", new { id = Model.EngineerId }, new { @class = "text" })</p>
