@@ -1,3 +1,48 @@
-body {
-  background-color: rgb(146, 133, 133);
+body{
+  background: #5c5550;
+	font-family: 'Zilla Slab', sans-serif;
+  color: white;
+  text-align: center;
+}
+
+span{
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size:35px;
+	letter-spacing:0.1em;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke-width: 3px;
+  -webkit-text-stroke-color: rgb(218, 25, 25);
+  text-shadow: 
+						2px 2px #ffffff,
+						5px 5px #000000;
+}
+
+.btn {
+  background-color: #746865;
+}
+
+.card {
+  background-color: #4d4d4d;
+}
+
+h5 {
+  color: #8b8b8b;
+}
+
+h3 {
+  font-size: 36px;
+}
+
+.text {
+  color: white;
+}
+
+a.text:hover {
+  color: #264653;
+}
+
+input {
+  margin: 8px;
 }
